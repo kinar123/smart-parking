@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # 1. שרת ה-Storage (Apache)
+  storage-server:
+    build: ./storage
+    container_name: parking-storage
+    ports:
+      - "8081:80"
+    volumes:
+      - images_data:/usr/local/apache2/htdocs/images
+
+  # 2. שרת ה-Web (Nginx)
+  web-server:
+    build: ./web
+    container_name: parking-web
+    ports:
+      - "8080:80"
+    depends_on:
+      - storage-server
+
+# הגדרת Volume לשמירת התמונות (Data Persistence)
+volumes:
+  images_data:
