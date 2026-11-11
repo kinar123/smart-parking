@@ -35,3 +35,5 @@ docker compose up --build -d
 לאחר ההפעלה, לוח הבקרה יהיה זמין בכתובת:
 
 [http://localhost:8080](http://localhost:8080)
+
+שלום מדניאל 
